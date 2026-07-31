@@ -4,7 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class', // أو 'media' للتبديل التلقائي فقط
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -64,13 +64,13 @@ export default {
         mono: ['JetBrains Mono', 'monospace'],
       },
       borderRadius: {
-        'card': '12px',
-        'modal': '16px',
+        card: '12px',
+        modal: '16px',
       },
       boxShadow: {
-        'card': '0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06)',
+        card: '0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06)',
         'card-hover': '0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04)',
-        'glow': '0 0 0 4px rgba(59,130,246,0.15)',
+        glow: '0 0 0 4px rgba(59,130,246,0.15)',
       },
     },
   },
