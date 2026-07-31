@@ -5,9 +5,46 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Earnforion - Discover Verified Ways To Earn Online</title>
+    <style>
+      #error-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: #0a0a0a; color: #f87171; padding: 20px;
+        font-family: monospace; white-space: pre-wrap; z-index: 9999;
+        overflow-y: auto;
+      }
+      body { margin: 0; }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <div id="error-overlay"></div>
+
+    <script>
+      // التقاط أي خطأ وعرضه على الشاشة
+      window.onerror = function(message, source, lineno, colno, error) {
+        var overlay = document.getElementById('error-overlay');
+        overlay.style.display = 'block';
+        overlay.innerHTML = '<h2 style="color:#ef4444;">🚨 JavaScript Error Detected</h2>' +
+          '<p><strong>Message:</strong> ' + (message || 'Unknown') + '</p>' +
+          '<p><strong>Source:</strong> ' + (source || 'Unknown') + '</p>' +
+          '<p><strong>Line:</strong> ' + lineno + ', Column: ' + colno + '</p>' +
+          (error && error.stack ? '<pre>' + error.stack + '</pre>' : '');
+        return true;
+      };
+      window.addEventListener('unhandledrejection', function(event) {
+        var overlay = document.getElementById('error-overlay');
+        overlay.style.display = 'block';
+        overlay.innerHTML = '<h2 style="color:#ef4444;">🚨 Unhandled Promise Rejection</h2>' +
+          '<p><strong>Reason:</strong> ' + (event.reason || 'Unknown') + '</p>';
+        event.preventDefault();
+      });
+
+      // في حال كان الخطأ قبل تحميل React، نضيف رسالة توضيحية
+      console.log("Error catcher ready. If you see this, the script ran.");
+    </script>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
