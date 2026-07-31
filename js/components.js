@@ -1,7 +1,6 @@
 // ==================== مكونات الواجهة ====================
 
 const Components = {
-  // شريط التنقل العلوي
   Navbar: function(activePath) {
     const links = [
       { path: '/home', label: 'Home', icon: 'ph-house' },
@@ -40,10 +39,10 @@ const Components = {
     `;
   },
 
-  // بطاقة الفرصة
-  OpportunityCard: function(opp) {
+  OpportunityCard: function(opp, showCompareButton = true) {
+    const isInCompare = state.compareList.some(item => item.id === opp.id);
     return `
-      <div class="card opp-card">
+      <div class="card opp-card fade-in-up" style="animation-delay:0.1s">
         <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
           <img src="${opp.logo}" alt="${opp.platform}" style="width:40px; height:40px; border-radius:8px; object-fit:contain; background:var(--neutral-200);">
           <div>
@@ -61,15 +60,20 @@ const Components = {
         <div style="display:flex; justify-content:space-between; align-items:center; padding-top:1rem; border-top:1px solid var(--border);">
           <span style="font-weight:600; color:var(--green-700);">${opp.earnings}</span>
           <div style="display:flex; gap:0.5rem;">
-            <button class="btn-ghost" style="padding:0.25rem;" title="Save"><i class="ph-heart"></i></button>
-            <button class="btn-ghost" style="padding:0.25rem;" title="Add to compare"><i class="ph-scales"></i></button>
+            <button class="btn-ghost save-btn" style="padding:0.25rem;" data-id="${opp.id}" title="Save">
+              <i class="ph-heart${state.savedItems.includes(opp.id) ? '-fill' : ''}"></i>
+            </button>
+            ${showCompareButton ? `
+              <button class="btn-ghost compare-btn" style="padding:0.25rem;" data-id="${opp.id}" title="${isInCompare ? 'Remove from compare' : 'Add to compare'}">
+                <i class="ph-scales" style="color:${isInCompare ? 'var(--blue-500)' : 'inherit'}"></i>
+              </button>
+            ` : ''}
           </div>
         </div>
       </div>
     `;
   },
 
-  // تذييل الموقع
   Footer: function() {
     return `
       <footer class="footer">
