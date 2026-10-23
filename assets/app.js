@@ -8,47 +8,36 @@ const emptyState = document.querySelector("#empty-state");
 const resultsLabel = document.querySelector("#results-label");
 let opportunities = [];
 
-const escapeHTML = (value = "") => String(value).replace(/[&<>"']/g, char => ({
-  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-}[char]));
-const compactNumber = value => {
-  const number = Number(value || 0);
-  return number >= 1e6 ? (number / 1e6).toFixed(1) + "m" : number >= 1e3 ? (number / 1e3).toFixed(1) + "k" : String(number);
-};
-const relativeDate = value => {
-  if (!value) return "Date unknown";
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return "Date unknown";
-  const days = Math.max(0, Math.floor((Date.now() - date.getTime()) / 86400000));
-  return days === 0 ? "Updated today" : days === 1 ? "Updated yesterday" : `Updated ${days}d ago`;
-};
+const escapeHTML = (value = "") => String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;", "'":"&#39;"}[char]));
+const compactNumber = value => { const number = Number(value || 0); return number >= 1000 ? (number / 1000).toFixed(1) + "k" : String(number); };
+const relativeDate = value => { if (!value) return "Date unknown"; const date = new Date(value); if (Number.isNaN(date.getTime())) return "Date unknown"; const days = Math.max(0, Math.floor((Date.now() - date.getTime()) / 86400000)); return days === 0 ? "Checked today" : days === 1 ? "Checked yesterday" : `Checked ${days}d ago`; };
+
 function renderCard(item) {
-  const repo = `${item.owner || ""}/${item.name || ""}`;
-  const description = item.description || "No description provided. Review the source repository to understand the project.";
-  const angle = item.businessAngle || "Explore whether this project can support a niche service, customization, or a paid add-on.";
-  const license = item.license || "Check license";
+  const reward = item.reward || "Varies by task";
+  const effort = item.effort || "Varies";
+  const requirements = item.requirements || "Check platform requirements";
   return `<article class="op-card">
-    <div class="card-top"><span class="category-tag">${escapeHTML(item.category || "Open source")}</span><span class="stars">★ ${compactNumber(item.stars)}</span></div>
-    <h3>${escapeHTML(item.name || repo)}</h3>
-    <div class="repo-name">${escapeHTML(repo)}</div>
-    <p class="op-description">${escapeHTML(description)}</p>
-    <div class="business-angle"><strong>Possible business angle</strong>${escapeHTML(angle)}</div>
-    <div class="card-meta"><span>⑂ ${compactNumber(item.forks)} forks</span><span>${escapeHTML(relativeDate(item.updatedAt))}</span></div>
-    <div class="card-meta"><span>${escapeHTML(license)}</span><span>Score ${Math.round(Number(item.score || 0))}/100</span></div>
-    <div class="card-links"><a href="${escapeHTML(item.url || "#")}" target="_blank" rel="noopener noreferrer">View repository ↗</a><a href="${escapeHTML(item.url || "#")}#readme" target="_blank" rel="noopener noreferrer">Read README ↗</a></div>
+    <div class="card-top"><span class="category-tag">${escapeHTML(item.category || "Online work")}</span><span class="availability">${escapeHTML(item.availability || "Check availability")}</span></div>
+    <h3>${escapeHTML(item.title || item.platform)}</h3>
+    <div class="platform-name">${escapeHTML(item.platform || "External platform")}</div>
+    <p class="op-description">${escapeHTML(item.description || "Review the official listing for current tasks and terms.")}</p>
+    <div class="earning-details"><div><span>Typical reward</span><strong>${escapeHTML(reward)}</strong></div><div><span>Effort</span><strong>${escapeHTML(effort)}</strong></div></div>
+    <div class="business-angle"><strong>Before you start</strong>${escapeHTML(requirements)}</div>
+    <div class="card-meta"><span>Match score ${Math.round(Number(item.score || 0))}/100</span><span>${escapeHTML(relativeDate(item.checkedAt))}</span></div>
+    <div class="card-links"><a href="${escapeHTML(item.url || "#")}" target="_blank" rel="noopener noreferrer">Open official platform ↗</a></div>
   </article>`;
 }
 function filteredItems() {
   const term = searchInput.value.trim().toLowerCase();
   const category = categoryFilter.value;
-  let list = opportunities.filter(item => {
-    const text = [item.name, item.owner, item.description, item.category, item.businessAngle, ...(item.topics || [])].join(" ").toLowerCase();
+  const list = opportunities.filter(item => {
+    const text = [item.title, item.platform, item.description, item.category, item.reward, item.effort, item.requirements, ...(item.tags || [])].join(" ").toLowerCase();
     return (!term || text.includes(term)) && (category === "all" || item.category === category);
   });
   switch (sortFilter.value) {
-    case "stars": list.sort((a,b) => (b.stars || 0) - (a.stars || 0)); break;
-    case "updated": list.sort((a,b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0)); break;
-    case "newest": list.sort((a,b) => new Date(b.discoveredAt || 0) - new Date(a.discoveredAt || 0)); break;
+    case "reward": list.sort((a,b) => (b.rewardScore || 0) - (a.rewardScore || 0)); break;
+    case "easy": list.sort((a,b) => (b.easeScore || 0) - (a.easeScore || 0)); break;
+    case "newest": list.sort((a,b) => new Date(b.checkedAt || 0) - new Date(a.checkedAt || 0)); break;
     default: list.sort((a,b) => (b.score || 0) - (a.score || 0));
   }
   return list;
@@ -61,7 +50,7 @@ function render() {
 }
 function initCategories() {
   const categories = [...new Set(opportunities.map(x => x.category).filter(Boolean))].sort();
-  categoryFilter.innerHTML = '<option value="all">All categories</option>' + categories.map(c => `<option value="${escapeHTML(c)}">${escapeHTML(c)}</option>`).join("");
+  categoryFilter.innerHTML = '<option value="all">All work types</option>' + categories.map(c => `<option value="${escapeHTML(c)}">${escapeHTML(c)}</option>`).join("");
 }
 async function loadData() {
   try {
@@ -72,7 +61,7 @@ async function loadData() {
     document.querySelector("#total-count").textContent = compactNumber(opportunities.length);
     document.querySelector("#category-count").textContent = new Set(opportunities.map(x => x.category).filter(Boolean)).size;
     document.querySelector("#updated-at").textContent = data.updatedAt ? new Date(data.updatedAt).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" }) : "Awaiting first sync";
-    statusMessage.textContent = opportunities.length ? `Updated automatically · ${data.source || "GitHub public repository data"}` : "The first automatic data collection has not run yet. Enable GitHub Actions and run the Update opportunities workflow.";
+    statusMessage.textContent = opportunities.length ? `Catalog checked automatically · ${data.source || "Curated online opportunity sources"}` : "No opportunities are listed yet.";
     initCategories();
     render();
   } catch (error) {
@@ -84,7 +73,5 @@ async function loadData() {
   }
 }
 [searchInput, categoryFilter, sortFilter].forEach(el => el.addEventListener("input", render));
-document.querySelector("#reset-filters").addEventListener("click", () => {
-  searchInput.value = ""; categoryFilter.value = "all"; sortFilter.value = "recommended"; render();
-});
+document.querySelector("#reset-filters").addEventListener("click", () => { searchInput.value = ""; categoryFilter.value = "all"; sortFilter.value = "recommended"; render(); });
 loadData();

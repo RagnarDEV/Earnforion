@@ -1,116 +1,26 @@
 import fs from "node:fs/promises";
 
-const TOKEN = process.env.GITHUB_TOKEN;
 const OUTPUT = "data/opportunities.json";
-const PER_QUERY = 30;
-const QUERIES = [
-  { category: "AI & Machine Learning", q: "AI OR LLM OR machine-learning stars:>100 archived:false fork:false" },
-  { category: "Automation & Bots", q: "automation OR workflow OR bot stars:>80 archived:false fork:false" },
-  { category: "SaaS & Web Apps", q: "SaaS OR self-hosted OR webapp stars:>100 archived:false fork:false" },
-  { category: "Developer Tools", q: "developer-tools OR CLI OR API stars:>100 archived:false fork:false" },
-  { category: "E-commerce", q: "ecommerce OR ecommerce-platform OR shop stars:>50 archived:false fork:false" },
-  { category: "Digital Products", q: "template OR starter-kit OR boilerplate stars:>100 archived:false fork:false" },
-  { category: "Data & Analytics", q: "analytics OR dashboard OR data-pipeline stars:>80 archived:false fork:false" },
-  { category: "Paid Bounties", q: "bounty OR good-first-issue stars:>50 archived:false fork:false" }
-];
+const checkedAt = new Date().toISOString();
 
-const BUSINESS_ANGLES = {
-  "AI & Machine Learning": "Adapt the project for a specific niche, offer setup/customization, or build a hosted tool. Validate hosting costs and model licenses first.",
-  "Automation & Bots": "Offer workflow automation or managed integrations to a defined customer group. Confirm platform terms and ongoing maintenance costs.",
-  "SaaS & Web Apps": "Investigate a focused hosted service, paid support, or customization. Review the license and security model before commercial use.",
-  "Developer Tools": "Offer implementation, integrations, support, or a specialized developer workflow built around the project.",
-  "E-commerce": "Build niche store integrations or offer store setup and automation services. Check all dependencies and commerce-platform terms.",
-  "Digital Products": "Use as a starting point for a differentiated template or implementation service, subject to the repository license.",
-  "Data & Analytics": "Offer dashboards, setup, data integration, or reporting for a specific industry.",
-  "Paid Bounties": "Check the repository issues and linked bounty platform for explicit active payouts. Stars alone do not indicate a paid bounty."
-};
+// This is an intentionally small, transparent seed catalog. The links go to official
+// opportunity platforms; no GitHub repository popularity is used as a proxy for income.
+const opportunities = [
+  { id:"prolific-research", title:"Paid research studies", platform:"Prolific", category:"Research & surveys", description:"Take academic and product research studies matched to your profile.", reward:"Usually a few dollars per study", effort:"10–60 min", availability:"Profile dependent", requirements:"Account approval and honest demographic profile.", url:"https://www.prolific.com/participants", tags:["studies","surveys","research"], score:91, rewardScore:78, easeScore:78 },
+  { id:"usertesting-tests", title:"Test websites and apps", platform:"UserTesting", category:"Testing & feedback", description:"Record your screen and voice while completing tasks on websites and apps.", reward:"Often $4–$10 for short tests", effort:"10–30 min", availability:"Country and screener dependent", requirements:"Microphone, compatible device, and passing sample test.", url:"https://www.usertesting.com/get-paid-to-test", tags:["usability","apps","websites"], score:94, rewardScore:82, easeScore:74 },
+  { id:"clickworker-tasks", title:"Microtasks and data work", platform:"Clickworker", category:"Microtasks", description:"Complete categorization, text, research, photo, and data-verification tasks.", reward:"Small task-based payments", effort:"5–45 min", availability:"Varies by country and project", requirements:"Verified account; some projects require assessments.", url:"https://www.clickworker.com/clickworker-job/", tags:["data","categorization","research"], score:88, rewardScore:65, easeScore:83 },
+  { id:"toloka-tasks", title:"Online data-labeling tasks", platform:"Toloka", category:"Microtasks", description:"Help evaluate search, content, images, and AI data through short tasks.", reward:"Varies by task and region", effort:"5–30 min", availability:"Country and task supply dependent", requirements:"Identity and payment verification may be required.", url:"https://toloka.ai/tolokers", tags:["ai","labeling","search"], score:86, rewardScore:62, easeScore:80 },
+  { id:"crowdgen-ai", title:"AI training and evaluation projects", platform:"CrowdGen by Appen", category:"AI & data projects", description:"Apply for remote data-collection, transcription, evaluation, and AI-training projects.", reward:"Project-based; varies widely", effort:"Hours to weeks", availability:"Project and language dependent", requirements:"Application, screening, and sometimes language or specialist skills.", url:"https://crowdgen.com/", tags:["ai","transcription","language","data"], score:84, rewardScore:88, easeScore:55 },
+  { id:"mturk-human-intelligence", title:"Human Intelligence Tasks (HITs)", platform:"Amazon Mechanical Turk", category:"Microtasks", description:"Complete short data, research, transcription, and moderation tasks posted by requesters.", reward:"Often cents to a few dollars per HIT", effort:"Minutes to hours", availability:"Country and requester approval dependent", requirements:"Worker account, tax information, and requester qualifications.", url:"https://www.mturk.com/worker", tags:["hits","data","transcription"], score:79, rewardScore:58, easeScore:68 },
+  { id:"fiverr-gigs", title:"Sell a small digital service", platform:"Fiverr", category:"Freelance services", description:"Offer a focused service such as translation, thumbnails, data cleanup, voiceover, or short writing.", reward:"Seller sets the price", effort:"1–8 hours per order", availability:"Global marketplace; competition varies", requirements:"Clear gig, samples, delivery time, and account verification.", url:"https://www.fiverr.com/start_selling", tags:["writing","design","translation","freelance"], score:90, rewardScore:92, easeScore:57 },
+  { id:"upwork-projects", title:"Apply to small freelance projects", platform:"Upwork", category:"Freelance services", description:"Find short contracts for admin support, design, writing, coding, research, and translation.", reward:"Client and contract dependent", effort:"1 hour to several days", availability:"Global; proposal competition applies", requirements:"Profile, portfolio, proposal, and platform eligibility.", url:"https://www.upwork.com/freelance-jobs/", tags:["freelance","writing","design","admin","coding"], score:88, rewardScore:94, easeScore:48 },
+  { id:"freelancer-contests", title:"Compete for small freelance jobs", platform:"Freelancer.com", category:"Freelance services", description:"Browse projects and contests for design, writing, data entry, marketing, and development.", reward:"Project or contest prize varies", effort:"Hours to days", availability:"Global; bid and contest rules apply", requirements:"Profile, proposal or submission, and current platform rules.", url:"https://www.freelancer.com/jobs/", tags:["contests","design","writing","data entry"], score:80, rewardScore:84, easeScore:50 },
+  { id:"respondent-studies", title:"Join paid interviews and studies", platform:"Respondent", category:"Research & surveys", description:"Apply for research interviews and product studies looking for specific roles or experiences.", reward:"Often higher than short surveys", effort:"15–90 min", availability:"Screener and demographic dependent", requirements:"Accurate profile and eligibility for each study.", url:"https://www.respondent.io/respondents", tags:["interviews","research","studies"], score:87, rewardScore:89, easeScore:58 },
+  { id:"dscout-participant", title:"Participate in mobile research missions", platform:"dscout", category:"Research & surveys", description:"Share diary entries, videos, photos, and feedback in selected research missions.", reward:"Mission dependent", effort:"Days to weeks in short sessions", availability:"Invitation and country dependent", requirements:"Mobile device, detailed applications, and mission completion.", url:"https://dscout.com/participate", tags:["mobile","diary","research"], score:82, rewardScore:80, easeScore:57 },
+  { id:"gumroad-digital-products", title:"Sell a small digital product", platform:"Gumroad", category:"Digital products", description:"Publish templates, guides, presets, spreadsheets, or other original digital downloads.", reward:"You set the price; sales dependent", effort:"One-time creation plus promotion", availability:"Global subject to platform/payment eligibility", requirements:"Original product, clear license, and audience or distribution plan.", url:"https://gumroad.com/", tags:["templates","ebooks","downloads","creator"], score:77, rewardScore:90, easeScore:42 }
+].map(item => ({ ...item, checkedAt }));
 
-function scoreRepo(repo) {
-  const stars = repo.stargazers_count || 0;
-  const forks = repo.forks_count || 0;
-  const updatedDays = Math.max(0, (Date.now() - new Date(repo.pushed_at || repo.updated_at).getTime()) / 86400000);
-  const activity = Math.max(0, 30 - Math.min(30, updatedDays)) / 30;
-  const docs = repo.description ? 8 : 0;
-  const license = repo.license ? 8 : 0;
-  const starsScore = Math.min(35, Math.log10(stars + 1) * 10);
-  const forksScore = Math.min(15, Math.log10(forks + 1) * 5);
-  return Math.round(Math.min(100, starsScore + forksScore + activity * 30 + docs + license));
-}
-function pickCategory(repo, fallback) {
-  const text = `${repo.name} ${repo.description || ""} ${(repo.topics || []).join(" ")}`.toLowerCase();
-  if (/bounty|good-first-issue/.test(text)) return "Paid Bounties";
-  if (/ecommerce|e-commerce|shopify|woocommerce|storefront/.test(text)) return "E-commerce";
-  if (/analytics|dashboard|data-pipeline|data pipeline/.test(text)) return "Data & Analytics";
-  if (/template|starter-kit|boilerplate|theme/.test(text)) return "Digital Products";
-  if (/automation|workflow|bot\b|n8n/.test(text)) return "Automation & Bots";
-  if (/\bsaas\b|self-hosted|webapp|web app/.test(text)) return "SaaS & Web Apps";
-  if (/\bai\b|\bllm\b|machine-learning|machine learning|inference/.test(text)) return "AI & Machine Learning";
-  if (/cli|developer-tool|sdk|api client/.test(text)) return "Developer Tools";
-  return fallback;
-}
-async function fetchQuery(query) {
-  const params = new URLSearchParams({
-    q: query.q,
-    sort: "updated",
-    order: "desc",
-    per_page: String(PER_QUERY)
-  });
-  const response = await fetch(`https://api.github.com/search/repositories?${params}`, {
-    headers: {
-      Accept: "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-      ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {})
-    }
-  });
-  if (!response.ok) {
-    const body = await response.text();
-    throw new Error(`GitHub API ${response.status}: ${body.slice(0, 250)}`);
-  }
-  const data = await response.json();
-  return data.items || [];
-}
-
-const byId = new Map();
-for (const entry of QUERIES) {
-  console.log(`Searching: ${entry.category}`);
-  const repos = await fetchQuery(entry);
-  for (const repo of repos) {
-    if (repo.archived || repo.disabled || !repo.html_url) continue;
-    const category = pickCategory(repo, entry.category);
-    const item = {
-      id: repo.id,
-      owner: repo.owner?.login || "",
-      name: repo.name,
-      url: repo.html_url,
-      description: repo.description || "",
-      category,
-      topics: repo.topics || [],
-      stars: repo.stargazers_count || 0,
-      forks: repo.forks_count || 0,
-      license: repo.license?.spdx_id || repo.license?.name || "No license detected",
-      createdAt: repo.created_at,
-      updatedAt: repo.pushed_at || repo.updated_at,
-      discoveredAt: new Date().toISOString(),
-      score: scoreRepo(repo),
-      businessAngle: BUSINESS_ANGLES[category] || BUSINESS_ANGLES["SaaS & Web Apps"]
-    };
-    const existing = byId.get(repo.id);
-    if (!existing || item.score > existing.score) byId.set(repo.id, item);
-  }
-  // Avoid bursty calls and secondary limits.
-  await new Promise(resolve => setTimeout(resolve, 1800));
-}
-const opportunities = [...byId.values()]
-  .sort((a, b) => b.score - a.score || b.stars - a.stars)
-  .slice(0, 180);
-
+const output = { updatedAt: checkedAt, source: "Curated official online opportunity platforms", total: opportunities.length, methodology: "Listings describe external platforms offering tasks, services, studies, or digital-product opportunities. Reward and availability are indicative and must be verified on the official source.", opportunities };
 await fs.mkdir("data", { recursive: true });
-const output = {
-  updatedAt: new Date().toISOString(),
-  source: "GitHub Search API",
-  total: opportunities.length,
-  methodology: "Heuristic discovery score based on stars, forks, recent activity, description and license presence. Score is not an earnings estimate.",
-  opportunities
-};
 await fs.writeFile(OUTPUT, JSON.stringify(output, null, 2) + "\n");
-console.log(`Saved ${opportunities.length} unique repositories to ${OUTPUT}`);
+console.log(`Saved ${opportunities.length} online earning opportunities to ${OUTPUT}`);
