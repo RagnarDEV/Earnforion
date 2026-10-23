@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131b">
+  <meta name="description" content="Discover open-source GitHub projects that could become online income opportunities. Research the source, license, and practical business angle.">
+  <title>EarnForion — Discover ways to earn with GitHub</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="EarnForion home">
+      <span class="brand-mark">E</span><span>Earn<span class="brand-accent">Forion</span></span>
+    </a>
+    <nav><a href="#opportunities">Explore opportunities</a><a href="#how-it-works">How it works</a><a class="github-link" href="https://github.com/RagnarDEV/EarnForion" target="_blank" rel="noopener">GitHub ↗</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> OPEN-SOURCE OPPORTUNITY RADAR</div>
+        <h1>Find a project.<br><span>Build an income.</span></h1>
+        <p class="hero-description">Explore GitHub projects you can adapt into services, digital products, automation tools, and business ideas. Every opportunity links back to its original repository.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#opportunities">Explore opportunities <span>↓</span></a><a class="text-button" href="https://github.com/RagnarDEV/EarnForion" target="_blank" rel="noopener">Open-source and transparent ↗</a></div>
+        <div class="trust-line"><span>✓ Source-linked</span><span>✓ License-aware</span><span>✓ Auto-refreshed</span></div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="core"><span>EF</span><small>DISCOVER</small></div>
+        <div class="float-card float-card-top"><span class="mini-icon purple">⌘</span><span><b>Open-source tools</b><small>Find useful building blocks</small></span><i>↗</i></div>
+        <div class="float-card float-card-bottom"><span class="mini-icon green">↗</span><span><b>Income potential</b><small>Turn skills into a service</small></span><i>✦</i></div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Dataset information">
+      <div><strong id="total-count">—</strong><span>opportunities indexed</span></div>
+      <div><strong id="category-count">—</strong><span>categories</span></div>
+      <div><strong id="updated-at">Waiting for first sync</strong><span>last data refresh</span></div>
+    </section>
+
+    <section id="opportunities" class="explore-section">
+      <div class="section-heading"><div><div class="eyebrow">THE DISCOVERY FEED</div><h2>Explore opportunities</h2><p>Projects are ranked by signals such as activity, stars, and documentation—not guaranteed earnings.</p></div><span class="source-pill"><span class="live-dot"></span> GitHub-sourced</span></div>
+      <div class="toolbar">
+        <label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Search projects, skills, or ideas…" autocomplete="off"></label>
+        <select id="category-filter" aria-label="Filter by category"><option value="all">All categories</option></select>
+        <select id="sort-filter" aria-label="Sort opportunities"><option value="recommended">Recommended</option><option value="stars">Most stars</option><option value="updated">Recently updated</option><option value="newest">Recently discovered</option></select>
+      </div>
+      <div id="status-message" class="status-message">Loading opportunity data…</div>
+      <div id="opportunity-grid" class="opportunity-grid"></div>
+      <div id="empty-state" class="empty-state" hidden><div class="empty-icon">⌕</div><h3>No matching projects</h3><p>Try another search or category.</p><button id="reset-filters" class="button button-secondary">Reset filters</button></div>
+      <div class="feed-footer"><span id="results-label"></span><a href="https://github.com/RagnarDEV/EarnForion" target="_blank" rel="noopener">Improve this project on GitHub ↗</a></div>
+    </section>
+
+    <section id="how-it-works" class="how-section">
+      <div class="eyebrow">A PRACTICAL STARTING POINT</div><h2>Discover first. Validate before you build.</h2>
+      <div class="how-grid">
+        <article><span class="step-number">01</span><h3>Explore the source</h3><p>Open the original repository and review its README, issue activity, dependencies, and license.</p></article>
+        <article><span class="step-number">02</span><h3>Find the business angle</h3><p>Consider a hosted service, customization, consulting, a niche workflow, or a paid add-on.</p></article>
+        <article><span class="step-number">03</span><h3>Check the evidence</h3><p>Confirm demand, costs, security, and commercial-use permissions before investing your time.</p></article>
+      </div>
+    </section>
+
+    <section class="disclaimer"><strong>Important:</strong> EarnForion surfaces projects and possible business angles. A GitHub repository is not proof of earnings, customer demand, or a paid bounty. Always verify the current license, project status, and any payment claims yourself.</section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="./"><span class="brand-mark">E</span><span>Earn<span class="brand-accent">Forion</span></span></a><span>Independent discovery project · Not affiliated with GitHub</span><a href="https://github.com/RagnarDEV/EarnForion" target="_blank" rel="noopener">View source ↗</a></footer>
+  <script src="./assets/app.js" defer></script>
+</body>
+</html>
