@@ -11,6 +11,17 @@ EarnForion is an independent directory of practical online earning opportunities
 - Automatic catalog refresh through GitHub Actions
 - No external database, server, or client-side API token
 
+## Opportunity lifecycle
+
+Every listing has a small lifecycle record in `data/opportunities.json`:
+
+- `published`: visible in the website feed.
+- `reviewAfter`: maintenance reminder after 30 days; the listing remains visible.
+- `expiresAt`: automatic expiry after 90 days without verification.
+- `archived`: expired or retired listings are moved to `data/opportunities-archive.json` and are not downloaded by visitors.
+
+The browser loads only the active `data/opportunities.json` file. The archive is never requested by `assets/app.js`, so old records cannot slow the website. The scheduled workflow runs once per day and skips the commit and Pages deployment when the active catalog has not changed. This avoids repeated rebuilds caused only by a changing timestamp.
+
 ## Setup
 
 1. Upload the project to a public repository.
@@ -33,7 +44,8 @@ The refresh script (`scripts/fetch-opportunities.mjs`) updates the checked times
 │   ├── app.js
 │   └── style.css
 ├── data/
-│   └── opportunities.json
+│   ├── opportunities.json
+│   └── opportunities-archive.json
 ├── scripts/
 │   └── fetch-opportunities.mjs
 └── .github/workflows/

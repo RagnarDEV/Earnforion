@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-10-23T07:19:38.345Z",
+  "schemaVersion": 2,
+  "updatedAt": "2026-10-23T07:19:20.940Z",
   "source": "Curated official online opportunity platforms",
   "total": 30,
+  "lifecycle": {
+    "published": "Visible in the website feed until expiresAt.",
+    "review_due": "reviewAfter is a maintenance reminder; the item stays visible until expiresAt.",
+    "archived": "Expired or retired items are written to opportunities-archive.json and are not loaded by the website."
+  },
   "methodology": "Listings describe external platforms offering tasks, services, studies, field work, offers, or digital products. Reward and availability are indicative and must be verified on the official source.",
   "opportunities": [
     {
@@ -23,7 +29,11 @@
       "score": 91,
       "rewardScore": 78,
       "easeScore": 78,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "respondent-studies",
@@ -44,7 +54,11 @@
       "score": 87,
       "rewardScore": 89,
       "easeScore": 58,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "dscout-participant",
@@ -65,7 +79,11 @@
       "score": 82,
       "rewardScore": 80,
       "easeScore": 57,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "yougov-surveys",
@@ -86,7 +104,11 @@
       "score": 75,
       "rewardScore": 55,
       "easeScore": 84,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "attapoll-surveys",
@@ -107,7 +129,11 @@
       "score": 73,
       "rewardScore": 53,
       "easeScore": 87,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "usertesting-tests",
@@ -128,7 +154,11 @@
       "score": 94,
       "rewardScore": 82,
       "easeScore": 74,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "trymata-tests",
@@ -149,7 +179,11 @@
       "score": 84,
       "rewardScore": 76,
       "easeScore": 72,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "usercrowd-design",
@@ -170,7 +204,11 @@
       "score": 80,
       "rewardScore": 54,
       "easeScore": 91,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "testio-bug-testing",
@@ -191,7 +229,11 @@
       "score": 83,
       "rewardScore": 81,
       "easeScore": 60,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "utest-testing",
@@ -212,7 +254,11 @@
       "score": 82,
       "rewardScore": 80,
       "easeScore": 57,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "playtestcloud-games",
@@ -233,7 +279,11 @@
       "score": 86,
       "rewardScore": 72,
       "easeScore": 76,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "testbirds-crowdtesting",
@@ -254,7 +304,11 @@
       "score": 79,
       "rewardScore": 75,
       "easeScore": 63,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "clickworker-tasks",
@@ -275,7 +329,11 @@
       "score": 88,
       "rewardScore": 65,
       "easeScore": 83,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "toloka-tasks",
@@ -296,7 +354,11 @@
       "score": 86,
       "rewardScore": 62,
       "easeScore": 80,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "mturk-human-intelligence",
@@ -317,7 +379,11 @@
       "score": 79,
       "rewardScore": 58,
       "easeScore": 68,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "neevo-ai-tasks",
@@ -339,7 +405,11 @@
       "score": 84,
       "rewardScore": 77,
       "easeScore": 65,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "oneforma-projects",
@@ -360,7 +430,11 @@
       "score": 83,
       "rewardScore": 86,
       "easeScore": 53,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "crowdgen-ai",
@@ -382,7 +456,11 @@
       "score": 84,
       "rewardScore": 88,
       "easeScore": 55,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "outlier-ai-work",
@@ -403,7 +481,11 @@
       "score": 81,
       "rewardScore": 92,
       "easeScore": 46,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "dataannotation-work",
@@ -424,7 +506,11 @@
       "score": 80,
       "rewardScore": 90,
       "easeScore": 45,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "telus-ai-community",
@@ -445,7 +531,11 @@
       "score": 78,
       "rewardScore": 84,
       "easeScore": 49,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "fiverr-gigs",
@@ -467,7 +557,11 @@
       "score": 90,
       "rewardScore": 92,
       "easeScore": 57,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "upwork-projects",
@@ -490,7 +584,11 @@
       "score": 88,
       "rewardScore": 94,
       "easeScore": 48,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "freelancer-contests",
@@ -512,7 +610,11 @@
       "score": 80,
       "rewardScore": 84,
       "easeScore": 50,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "gumroad-digital-products",
@@ -534,7 +636,11 @@
       "score": 77,
       "rewardScore": 90,
       "easeScore": 42,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "premise-contributor",
@@ -555,7 +661,11 @@
       "score": 76,
       "rewardScore": 68,
       "easeScore": 72,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "field-agent-tasks",
@@ -576,7 +686,11 @@
       "score": 74,
       "rewardScore": 72,
       "easeScore": 60,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "gigwalk-mobile",
@@ -597,7 +711,11 @@
       "score": 72,
       "rewardScore": 70,
       "easeScore": 59,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "freecash-offers",
@@ -618,7 +736,11 @@
       "score": 69,
       "rewardScore": 64,
       "easeScore": 78,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     },
     {
       "id": "ysense-surveys",
@@ -639,7 +761,11 @@
       "score": 68,
       "rewardScore": 61,
       "easeScore": 79,
-      "checkedAt": "2026-10-23T07:19:38.345Z"
+      "status": "published",
+      "publishedAt": "2026-10-23T07:27:34.664Z",
+      "lastVerifiedAt": "2026-10-23T07:27:34.664Z",
+      "reviewAfter": "2026-11-22T07:27:34.664Z",
+      "expiresAt": "2027-01-21T07:27:34.664Z"
     }
   ]
 }

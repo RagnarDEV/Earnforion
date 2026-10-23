@@ -1,7 +1,11 @@
 import fs from "node:fs/promises";
 
 const OUTPUT = "data/opportunities.json";
+const ARCHIVE_OUTPUT = "data/opportunities-archive.json";
 const checkedAt = new Date().toISOString();
+const REVIEW_AFTER_DAYS = 30;
+const EXPIRE_AFTER_DAYS = 90;
+const addDays = (iso, days) => new Date(new Date(iso).getTime() + days * 86400000).toISOString();
 
 // Curated opportunity leads. These are official platform links, not GitHub repositories.
 // Reward and availability are deliberately described as indicative because they vary by
@@ -39,17 +43,58 @@ const seed = [
   ["ysense-surveys", "Surveys and offerwall tasks", "ySense", "Offers & rewards", "Complete available surveys and online offers in the regions and categories shown to your account.", "Offer and country dependent", "5–45 min", "Profile and advertiser dependent", "Check completion rules and payout conditions before starting.", "https://www.ysense.com/", ["offers", "surveys", "rewards"], 68, 61, 79]
 ];
 
-const opportunities = seed.map(([id, title, platform, category, description, reward, effort, availability, requirements, url, tags, score, rewardScore, easeScore]) => ({
-  id, title, platform, category, description, reward, effort, availability, requirements, url, tags, score, rewardScore, easeScore, checkedAt
-}));
+const previous = JSON.parse(await fs.readFile(OUTPUT, "utf8").catch(() => "{}"));
+const previousById = new Map((previous.opportunities || []).map(item => [item.id, item]));
+const previousArchive = JSON.parse(await fs.readFile(ARCHIVE_OUTPUT, "utf8").catch(() => "{}"));
+const previousArchiveById = new Map((previousArchive.opportunities || []).map(item => [item.id, item]));
 
+const allItems = seed.map(([id, title, platform, category, description, reward, effort, availability, requirements, url, tags, score, rewardScore, easeScore]) => {
+  const old = previousById.get(id) || previousArchiveById.get(id);
+  const firstPublishedAt = old?.publishedAt || checkedAt;
+  const lastVerifiedAt = old?.lastVerifiedAt || checkedAt;
+  const status = old?.status === "archived" ? "published" : (old?.status || "published");
+  return {
+    id, title, platform, category, description, reward, effort, availability, requirements, url, tags,
+    score, rewardScore, easeScore, status,
+    publishedAt: firstPublishedAt,
+    lastVerifiedAt,
+    reviewAfter: addDays(lastVerifiedAt, REVIEW_AFTER_DAYS),
+    expiresAt: addDays(lastVerifiedAt, EXPIRE_AFTER_DAYS)
+  };
+});
+
+const active = allItems.filter(item => item.status === "published" && new Date(item.expiresAt) > new Date(checkedAt));
+const archived = allItems.filter(item => !active.includes(item)).map(item => ({ ...item, status: "archived", archivedAt: checkedAt }));
 const output = {
-  updatedAt: checkedAt,
+  schemaVersion: 2,
+  updatedAt: previous.updatedAt || checkedAt,
   source: "Curated official online opportunity platforms",
-  total: opportunities.length,
+  total: active.length,
+  lifecycle: {
+    published: "Visible in the website feed until expiresAt.",
+    review_due: "reviewAfter is a maintenance reminder; the item stays visible until expiresAt.",
+    archived: "Expired or retired items are written to opportunities-archive.json and are not loaded by the website."
+  },
   methodology: "Listings describe external platforms offering tasks, services, studies, field work, offers, or digital products. Reward and availability are indicative and must be verified on the official source.",
-  opportunities
+  opportunities: active
+};
+const archiveOutput = {
+  schemaVersion: 2,
+  updatedAt: previousArchive.updatedAt || checkedAt,
+  source: "EarnForion opportunity lifecycle archive",
+  total: archived.length,
+  opportunities: archived
 };
 await fs.mkdir("data", { recursive: true });
-await fs.writeFile(OUTPUT, JSON.stringify(output, null, 2) + "\n");
-console.log(`Saved ${opportunities.length} online earning opportunities to ${OUTPUT}`);
+const oldComparable = JSON.stringify({
+  schemaVersion: previous.schemaVersion,
+  source: previous.source,
+  total: previous.total,
+  lifecycle: previous.lifecycle,
+  methodology: previous.methodology,
+  opportunities: previous.opportunities
+});
+const newComparable = JSON.stringify(output);
+if (oldComparable !== newComparable) await fs.writeFile(OUTPUT, JSON.stringify(output, null, 2) + "\n");
+await fs.writeFile(ARCHIVE_OUTPUT, JSON.stringify(archiveOutput, null, 2) + "\n");
+console.log(`Published ${active.length} opportunities; archived ${archived.length}; next review cycle is maintenance-only.`);

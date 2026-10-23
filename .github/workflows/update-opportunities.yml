@@ -2,7 +2,7 @@ name: Refresh online earning opportunities
 
 on:
   schedule:
-    - cron: "17 */6 * * *"
+    - cron: "17 3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -23,15 +23,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - name: Refresh curated online opportunity catalog
+      - name: Run opportunity lifecycle maintenance
         run: node scripts/fetch-opportunities.mjs
       - name: Commit data only when changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/opportunities.json
+          git add data/opportunities.json data/opportunities-archive.json
           if git diff --cached --quiet; then
-            echo "No catalog changes to commit."
+            echo "No lifecycle changes; skipping site deployment."
           else
             git commit -m "chore: refresh online opportunity catalog"
             git push
