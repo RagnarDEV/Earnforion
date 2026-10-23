@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-10-23T07:13:33.731Z",
+  "updatedAt": "2026-10-23T07:19:20.940Z",
   "source": "Curated official online opportunity platforms",
-  "total": 12,
-  "methodology": "Listings describe external platforms offering tasks, services, studies, or digital-product opportunities. Reward and availability are indicative and must be verified on the official source.",
+  "total": 30,
+  "methodology": "Listings describe external platforms offering tasks, services, studies, field work, offers, or digital products. Reward and availability are indicative and must be verified on the official source.",
   "opportunities": [
     {
       "id": "prolific-research",
@@ -13,7 +13,7 @@
       "reward": "Usually a few dollars per study",
       "effort": "10–60 min",
       "availability": "Profile dependent",
-      "requirements": "Account approval and honest demographic profile.",
+      "requirements": "Account approval and an honest demographic profile.",
       "url": "https://www.prolific.com/participants",
       "tags": [
         "studies",
@@ -23,7 +23,91 @@
       "score": 91,
       "rewardScore": 78,
       "easeScore": 78,
-      "checkedAt": "2026-10-23T07:13:33.731Z"
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "respondent-studies",
+      "title": "Join paid interviews and studies",
+      "platform": "Respondent",
+      "category": "Research & surveys",
+      "description": "Apply for research interviews and product studies looking for specific roles or experiences.",
+      "reward": "Often higher than short surveys",
+      "effort": "15–90 min",
+      "availability": "Screener and demographic dependent",
+      "requirements": "Accurate profile and eligibility for each study.",
+      "url": "https://www.respondent.io/respondents",
+      "tags": [
+        "interviews",
+        "research",
+        "studies"
+      ],
+      "score": 87,
+      "rewardScore": 89,
+      "easeScore": 58,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "dscout-participant",
+      "title": "Participate in mobile research missions",
+      "platform": "dscout",
+      "category": "Research & surveys",
+      "description": "Share diary entries, videos, photos, and feedback in selected research missions.",
+      "reward": "Mission dependent",
+      "effort": "Days to weeks in short sessions",
+      "availability": "Invitation and country dependent",
+      "requirements": "Mobile device, detailed applications, and mission completion.",
+      "url": "https://dscout.com/participate",
+      "tags": [
+        "mobile",
+        "diary",
+        "research"
+      ],
+      "score": 82,
+      "rewardScore": 80,
+      "easeScore": 57,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "yougov-surveys",
+      "title": "Answer opinion surveys",
+      "platform": "YouGov",
+      "category": "Research & surveys",
+      "description": "Share opinions in recurring surveys and build points toward available rewards.",
+      "reward": "Points and rewards vary by country",
+      "effort": "5–20 min",
+      "availability": "Country and invitation dependent",
+      "requirements": "Verified account and a consistent profile.",
+      "url": "https://account.yougov.com/",
+      "tags": [
+        "surveys",
+        "opinions",
+        "rewards"
+      ],
+      "score": 75,
+      "rewardScore": 55,
+      "easeScore": 84,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "attapoll-surveys",
+      "title": "Complete short mobile surveys",
+      "platform": "AttaPoll",
+      "category": "Research & surveys",
+      "description": "Choose short surveys in a mobile app and receive the reward shown before starting.",
+      "reward": "Small rewards per completed survey",
+      "effort": "2–15 min",
+      "availability": "Country and profile dependent",
+      "requirements": "Mobile app, screening answers, and supported payout method.",
+      "url": "https://attapoll.app/",
+      "tags": [
+        "mobile",
+        "surveys",
+        "quick tasks"
+      ],
+      "score": 73,
+      "rewardScore": 53,
+      "easeScore": 87,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
     },
     {
       "id": "usertesting-tests",
@@ -44,7 +128,133 @@
       "score": 94,
       "rewardScore": 82,
       "easeScore": 74,
-      "checkedAt": "2026-10-23T07:13:33.731Z"
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "trymata-tests",
+      "title": "Give feedback on digital products",
+      "platform": "Trymata",
+      "category": "Testing & feedback",
+      "description": "Complete usability tests and share written or recorded feedback on websites and apps.",
+      "reward": "Test-based; amount shown by platform",
+      "effort": "15–30 min",
+      "availability": "Test invitation dependent",
+      "requirements": "Device, clear feedback, and accepted test submission.",
+      "url": "https://trymata.com/",
+      "tags": [
+        "usability",
+        "feedback",
+        "apps"
+      ],
+      "score": 84,
+      "rewardScore": 76,
+      "easeScore": 72,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "usercrowd-design",
+      "title": "Review designs and prototypes",
+      "platform": "UserCrowd",
+      "category": "Testing & feedback",
+      "description": "Answer short questions about designs, interfaces, and user experience decisions.",
+      "reward": "Small payments per accepted test",
+      "effort": "1–10 min",
+      "availability": "Profile and test supply dependent",
+      "requirements": "Fast, thoughtful answers and supported payout method.",
+      "url": "https://usercrowd.com/",
+      "tags": [
+        "design",
+        "ux",
+        "quick tasks"
+      ],
+      "score": 80,
+      "rewardScore": 54,
+      "easeScore": 91,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "testio-bug-testing",
+      "title": "Find bugs in websites and apps",
+      "platform": "Test IO",
+      "category": "Testing & feedback",
+      "description": "Join software testing projects and report reproducible bugs for review.",
+      "reward": "Bug and project dependent",
+      "effort": "30 min to several hours",
+      "availability": "Project and device dependent",
+      "requirements": "Tester account, supported devices, and ability to write clear bug reports.",
+      "url": "https://test.io/",
+      "tags": [
+        "bugs",
+        "qa",
+        "apps"
+      ],
+      "score": 83,
+      "rewardScore": 81,
+      "easeScore": 60,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "utest-testing",
+      "title": "Test software releases",
+      "platform": "uTest",
+      "category": "Testing & feedback",
+      "description": "Participate in software testing cycles and report defects or test results.",
+      "reward": "Cycle and approved bug dependent",
+      "effort": "30 min to several days",
+      "availability": "Project and country dependent",
+      "requirements": "Profile, testing skills, and compatible devices.",
+      "url": "https://www.utest.com/get-paid-to-test",
+      "tags": [
+        "qa",
+        "bugs",
+        "software"
+      ],
+      "score": 82,
+      "rewardScore": 80,
+      "easeScore": 57,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "playtestcloud-games",
+      "title": "Playtest mobile games",
+      "platform": "PlaytestCloud",
+      "category": "Game testing",
+      "description": "Play unreleased games and record feedback about the experience.",
+      "reward": "Usually a small reward per accepted playtest",
+      "effort": "10–30 min",
+      "availability": "Country, device, and invitation dependent",
+      "requirements": "Compatible mobile device, microphone, and spoken feedback.",
+      "url": "https://www.playtestcloud.com/players",
+      "tags": [
+        "games",
+        "mobile",
+        "testing"
+      ],
+      "score": 86,
+      "rewardScore": 72,
+      "easeScore": 76,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "testbirds-crowdtesting",
+      "title": "Crowdtest digital products",
+      "platform": "Testbirds",
+      "category": "Testing & feedback",
+      "description": "Test websites, apps, and connected products in crowdtesting projects.",
+      "reward": "Project and defect dependent",
+      "effort": "20 min to several hours",
+      "availability": "Country, device, and project dependent",
+      "requirements": "Registered tester profile and clear evidence for issues.",
+      "url": "https://nest.testbirds.com/",
+      "tags": [
+        "crowdtesting",
+        "qa",
+        "apps"
+      ],
+      "score": 79,
+      "rewardScore": 75,
+      "easeScore": 63,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
     },
     {
       "id": "clickworker-tasks",
@@ -54,7 +264,7 @@
       "description": "Complete categorization, text, research, photo, and data-verification tasks.",
       "reward": "Small task-based payments",
       "effort": "5–45 min",
-      "availability": "Varies by country and project",
+      "availability": "Country and project dependent",
       "requirements": "Verified account; some projects require assessments.",
       "url": "https://www.clickworker.com/clickworker-job/",
       "tags": [
@@ -65,7 +275,7 @@
       "score": 88,
       "rewardScore": 65,
       "easeScore": 83,
-      "checkedAt": "2026-10-23T07:13:33.731Z"
+      "checkedAt": "2026-10-23T07:19:20.940Z"
     },
     {
       "id": "toloka-tasks",
@@ -86,29 +296,7 @@
       "score": 86,
       "rewardScore": 62,
       "easeScore": 80,
-      "checkedAt": "2026-10-23T07:13:33.731Z"
-    },
-    {
-      "id": "crowdgen-ai",
-      "title": "AI training and evaluation projects",
-      "platform": "CrowdGen by Appen",
-      "category": "AI & data projects",
-      "description": "Apply for remote data-collection, transcription, evaluation, and AI-training projects.",
-      "reward": "Project-based; varies widely",
-      "effort": "Hours to weeks",
-      "availability": "Project and language dependent",
-      "requirements": "Application, screening, and sometimes language or specialist skills.",
-      "url": "https://crowdgen.com/",
-      "tags": [
-        "ai",
-        "transcription",
-        "language",
-        "data"
-      ],
-      "score": 84,
-      "rewardScore": 88,
-      "easeScore": 55,
-      "checkedAt": "2026-10-23T07:13:33.731Z"
+      "checkedAt": "2026-10-23T07:19:20.940Z"
     },
     {
       "id": "mturk-human-intelligence",
@@ -129,7 +317,135 @@
       "score": 79,
       "rewardScore": 58,
       "easeScore": 68,
-      "checkedAt": "2026-10-23T07:13:33.731Z"
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "neevo-ai-tasks",
+      "title": "Language and AI data tasks",
+      "platform": "Neevo",
+      "category": "AI & data projects",
+      "description": "Apply for language, audio, image, and text data projects used to improve AI systems.",
+      "reward": "Project and task dependent",
+      "effort": "Minutes to several hours",
+      "availability": "Language, location, and project dependent",
+      "requirements": "Verified profile and completion of any project qualification.",
+      "url": "https://neevo.defined.ai/",
+      "tags": [
+        "ai",
+        "audio",
+        "language",
+        "data"
+      ],
+      "score": 84,
+      "rewardScore": 77,
+      "easeScore": 65,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "oneforma-projects",
+      "title": "Remote language and data projects",
+      "platform": "OneForma",
+      "category": "AI & data projects",
+      "description": "Find transcription, translation, data collection, and AI evaluation projects.",
+      "reward": "Project-based; varies by assignment",
+      "effort": "Hours to weeks",
+      "availability": "Language and location dependent",
+      "requirements": "Profile, screening, and sometimes identity verification.",
+      "url": "https://www.oneforma.com/",
+      "tags": [
+        "ai",
+        "translation",
+        "transcription"
+      ],
+      "score": 83,
+      "rewardScore": 86,
+      "easeScore": 53,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "crowdgen-ai",
+      "title": "AI training and evaluation projects",
+      "platform": "CrowdGen by Appen",
+      "category": "AI & data projects",
+      "description": "Apply for remote data-collection, transcription, evaluation, and AI-training projects.",
+      "reward": "Project-based; varies widely",
+      "effort": "Hours to weeks",
+      "availability": "Project and language dependent",
+      "requirements": "Application, screening, and sometimes specialist skills.",
+      "url": "https://crowdgen.com/",
+      "tags": [
+        "ai",
+        "transcription",
+        "language",
+        "data"
+      ],
+      "score": 84,
+      "rewardScore": 88,
+      "easeScore": 55,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "outlier-ai-work",
+      "title": "Evaluate and improve AI responses",
+      "platform": "Outlier",
+      "category": "AI & data projects",
+      "description": "Apply for projects that involve writing, evaluating, or improving AI-generated responses.",
+      "reward": "Project and expertise dependent",
+      "effort": "Hours to weeks",
+      "availability": "Role, country, and screening dependent",
+      "requirements": "Strong language or subject skills and successful onboarding.",
+      "url": "https://outlier.ai/",
+      "tags": [
+        "ai",
+        "writing",
+        "evaluation"
+      ],
+      "score": 81,
+      "rewardScore": 92,
+      "easeScore": 46,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "dataannotation-work",
+      "title": "Write and review AI responses",
+      "platform": "DataAnnotation",
+      "category": "AI & data projects",
+      "description": "Apply for flexible remote work evaluating, comparing, or writing responses for AI systems.",
+      "reward": "Assessment and project dependent",
+      "effort": "Hours to weeks",
+      "availability": "Application and country dependent",
+      "requirements": "Strong writing or subject expertise and platform assessment.",
+      "url": "https://www.dataannotation.tech/",
+      "tags": [
+        "ai",
+        "writing",
+        "review"
+      ],
+      "score": 80,
+      "rewardScore": 90,
+      "easeScore": 45,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "telus-ai-community",
+      "title": "Search and content evaluation",
+      "platform": "TELUS Digital AI Community",
+      "category": "AI & data projects",
+      "description": "Apply for search relevance, ads quality, speech, and data-collection projects.",
+      "reward": "Project and locale dependent",
+      "effort": "Part-time project based",
+      "availability": "Locale, language, and qualification dependent",
+      "requirements": "Application, assessments, and identity verification may apply.",
+      "url": "https://www.telusdigital.com/careers/ai-community",
+      "tags": [
+        "search",
+        "ai",
+        "language"
+      ],
+      "score": 78,
+      "rewardScore": 84,
+      "easeScore": 49,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
     },
     {
       "id": "fiverr-gigs",
@@ -151,7 +467,7 @@
       "score": 90,
       "rewardScore": 92,
       "easeScore": 57,
-      "checkedAt": "2026-10-23T07:13:33.731Z"
+      "checkedAt": "2026-10-23T07:19:20.940Z"
     },
     {
       "id": "upwork-projects",
@@ -174,7 +490,7 @@
       "score": 88,
       "rewardScore": 94,
       "easeScore": 48,
-      "checkedAt": "2026-10-23T07:13:33.731Z"
+      "checkedAt": "2026-10-23T07:19:20.940Z"
     },
     {
       "id": "freelancer-contests",
@@ -196,49 +512,7 @@
       "score": 80,
       "rewardScore": 84,
       "easeScore": 50,
-      "checkedAt": "2026-10-23T07:13:33.731Z"
-    },
-    {
-      "id": "respondent-studies",
-      "title": "Join paid interviews and studies",
-      "platform": "Respondent",
-      "category": "Research & surveys",
-      "description": "Apply for research interviews and product studies looking for specific roles or experiences.",
-      "reward": "Often higher than short surveys",
-      "effort": "15–90 min",
-      "availability": "Screener and demographic dependent",
-      "requirements": "Accurate profile and eligibility for each study.",
-      "url": "https://www.respondent.io/respondents",
-      "tags": [
-        "interviews",
-        "research",
-        "studies"
-      ],
-      "score": 87,
-      "rewardScore": 89,
-      "easeScore": 58,
-      "checkedAt": "2026-10-23T07:13:33.731Z"
-    },
-    {
-      "id": "dscout-participant",
-      "title": "Participate in mobile research missions",
-      "platform": "dscout",
-      "category": "Research & surveys",
-      "description": "Share diary entries, videos, photos, and feedback in selected research missions.",
-      "reward": "Mission dependent",
-      "effort": "Days to weeks in short sessions",
-      "availability": "Invitation and country dependent",
-      "requirements": "Mobile device, detailed applications, and mission completion.",
-      "url": "https://dscout.com/participate",
-      "tags": [
-        "mobile",
-        "diary",
-        "research"
-      ],
-      "score": 82,
-      "rewardScore": 80,
-      "easeScore": 57,
-      "checkedAt": "2026-10-23T07:13:33.731Z"
+      "checkedAt": "2026-10-23T07:19:20.940Z"
     },
     {
       "id": "gumroad-digital-products",
@@ -249,7 +523,7 @@
       "reward": "You set the price; sales dependent",
       "effort": "One-time creation plus promotion",
       "availability": "Global subject to platform/payment eligibility",
-      "requirements": "Original product, clear license, and audience or distribution plan.",
+      "requirements": "Original product, clear license, and an audience or distribution plan.",
       "url": "https://gumroad.com/",
       "tags": [
         "templates",
@@ -260,7 +534,112 @@
       "score": 77,
       "rewardScore": 90,
       "easeScore": 42,
-      "checkedAt": "2026-10-23T07:13:33.731Z"
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "premise-contributor",
+      "title": "Complete local information tasks",
+      "platform": "Premise",
+      "category": "Local & field tasks",
+      "description": "Use a phone to complete available local surveys, observations, and information-gathering tasks.",
+      "reward": "Task and location dependent",
+      "effort": "5–30 min per task",
+      "availability": "Country, location, and task supply dependent",
+      "requirements": "Smartphone, location permissions, and accurate submissions.",
+      "url": "https://contributors.premise.com/",
+      "tags": [
+        "mobile",
+        "fieldwork",
+        "local"
+      ],
+      "score": 76,
+      "rewardScore": 68,
+      "easeScore": 72,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "field-agent-tasks",
+      "title": "Complete local store checks",
+      "platform": "Field Agent",
+      "category": "Local & field tasks",
+      "description": "Visit stores or locations to answer questions, take photos, or verify product information.",
+      "reward": "Task and location dependent",
+      "effort": "15–60 min plus travel",
+      "availability": "Supported locations and task availability dependent",
+      "requirements": "Smartphone, ability to travel locally, and evidence requirements.",
+      "url": "https://app.fieldagent.net/",
+      "tags": [
+        "fieldwork",
+        "photos",
+        "retail"
+      ],
+      "score": 74,
+      "rewardScore": 72,
+      "easeScore": 60,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "gigwalk-mobile",
+      "title": "Do nearby retail audits",
+      "platform": "Gigwalk",
+      "category": "Local & field tasks",
+      "description": "Find nearby assignments involving retail checks, photos, and product information.",
+      "reward": "Assignment dependent",
+      "effort": "15–90 min plus travel",
+      "availability": "City and task supply dependent",
+      "requirements": "Mobile device, location access, and accurate proof of completion.",
+      "url": "https://www.gigwalk.com/",
+      "tags": [
+        "retail",
+        "fieldwork",
+        "mobile"
+      ],
+      "score": 72,
+      "rewardScore": 70,
+      "easeScore": 59,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "freecash-offers",
+      "title": "Complete online offers and surveys",
+      "platform": "Freecash",
+      "category": "Offers & rewards",
+      "description": "Browse available surveys, app trials, and offerwall tasks and review the terms before opting in.",
+      "reward": "Offer and country dependent",
+      "effort": "Minutes to hours",
+      "availability": "Offerwall and payout eligibility dependent",
+      "requirements": "Read the advertiser conditions; never buy something solely to chase a reward.",
+      "url": "https://freecash.com/",
+      "tags": [
+        "offers",
+        "surveys",
+        "apps"
+      ],
+      "score": 69,
+      "rewardScore": 64,
+      "easeScore": 78,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
+    },
+    {
+      "id": "ysense-surveys",
+      "title": "Surveys and offerwall tasks",
+      "platform": "ySense",
+      "category": "Offers & rewards",
+      "description": "Complete available surveys and online offers in the regions and categories shown to your account.",
+      "reward": "Offer and country dependent",
+      "effort": "5–45 min",
+      "availability": "Profile and advertiser dependent",
+      "requirements": "Check completion rules and payout conditions before starting.",
+      "url": "https://www.ysense.com/",
+      "tags": [
+        "offers",
+        "surveys",
+        "rewards"
+      ],
+      "score": 68,
+      "rewardScore": 61,
+      "easeScore": 79,
+      "checkedAt": "2026-10-23T07:19:20.940Z"
     }
   ]
 }
